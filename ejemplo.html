@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obtener Ubicación</title>
+<script>
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      alert("La geolocalización no es soportada por este navegador.");
+    }
+  }
+
+  function showPosition(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    document.getElementById("location").innerHTML = "Latitud: " + latitude + "<br>Longitud: " + longitude;
+  }
+</script>
+</head>
+<body>
+
+<h2>Obtener Ubicación</h2>
+
+<button onclick="getLocation()">Obtener Ubicación</button>
+
+<p id="location"></p>
+
+</body>
+</html>
